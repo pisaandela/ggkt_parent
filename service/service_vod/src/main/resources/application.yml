@@ -1,0 +1,48 @@
+server:
+  port: 8301
+
+spring:
+  application:
+    name: service-vod
+
+
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+
+  profiles:
+    active: dev
+
+# mysql
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/glkt_vod?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 1234
+
+# json
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+# mybatis
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: com/atguigu/ggkt/vod/mapper/xml/*.xml
+
+# 七牛存储
+qiniu:
+  ACCESS_KEY: 00-PwjlwGervChuWWicXJAg2JAHV7TOXtbGAgrAm
+  SECRET_KEY: r7UezSqNZyTc7IJi6gQ7S80b1n75MHaXO5p8TTBS
+  bucketname: ossmy
+  path: http://oss.icodeme.cn/
+
+tencent:
+  video:
+    appid: 1312624373
